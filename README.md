@@ -7,7 +7,7 @@
     - [Administration tips](https://github.com/Simone-Zabberoni/mini-howtos/blob/master/nextcloud/nextcloud-admin-tips.md)
 
 - LUKS / Encryption:
-    - [Encrypted filesystem on top of LVM](https://github.com/Simone-Zabberoni/mini-howtos/blob/master/nextcloud/luks-over-lvm.md)
+    - [Encrypted filesystem on top of LVM](https://github.com/Simone-Zabberoni/mini-howtos/blob/master/encrypted-fs/luks-over-lvm.md)
 
 
 
