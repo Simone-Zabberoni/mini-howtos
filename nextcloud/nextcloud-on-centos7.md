@@ -13,7 +13,7 @@ yum -y update
 Install apache and php7:
 
 ```
-yum install httpd sqlite php70u php70u-mysqlnd php70u-mysql php70u-dom php70u-opcache php70u-pdo php70u-mbstring php70u-gd php70u-devel php70u-intl php70u-pdo php70u-json php70u-xml php70u-zip php70u-gd  php70u-curl php70u-mcrypt php70u-pear php70u-bcmath php70u-iconv
+yum -y install httpd sqlite php70u php70u-mysqlnd php70u-mysql php70u-dom php70u-opcache php70u-pdo php70u-mbstring php70u-gd php70u-devel php70u-intl php70u-pdo php70u-json php70u-xml php70u-zip php70u-gd  php70u-curl php70u-mcrypt php70u-pear php70u-bcmath php70u-iconv
 
 systemctl start httpd ; systemctl enable httpd
 ```
@@ -35,10 +35,6 @@ create database nextcloud_db;
 grant all on nextcloud_db.* to 'nxtuser'@'localhost' identified by 'somepassword';
 flush privileges;
 ```
-
-
-
-
 
 
 Download, unpack and fix permissions:
