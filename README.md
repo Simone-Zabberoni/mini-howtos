@@ -9,6 +9,12 @@
 - LUKS / Encryption:
     - [Encrypted filesystem on top of LVM](https://github.com/Simone-Zabberoni/mini-howtos/blob/master/encrypted-fs/luks-over-lvm.md)
 
+- NetDisco
+    - [Installation on Centos 7](https://github.com/Simone-Zabberoni/mini-howtos/blob/master/netdisco/netdisco-on-centos7.md)
+
+
+    
+
 
 
 
