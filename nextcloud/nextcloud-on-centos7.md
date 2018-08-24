@@ -1,4 +1,4 @@
-# Nextcloud 12 installation on Centos 7 with php7
+# Nextcloud installation on Centos 7 with php7
 
 ## OS and repo preparation
 
