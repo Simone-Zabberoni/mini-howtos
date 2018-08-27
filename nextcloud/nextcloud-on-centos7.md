@@ -44,6 +44,25 @@ tar xvfj latest.tar.bz2 -C /var/www/html
 chown -R apache:apache /var/www/html/nextcloud
 ```
 
+
+## Apache 
+
+Set up HSTS in /etc/httpd/conf.d/ssl.conf:
+
+```
+<IfModule mod_headers.c>
+        Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"
+</IfModule>
+```
+
+Set the standard stuff on /etc/httpd/conf/httpd.conf: `AllowOverride`, `ServerName`, `ServerAdmin` etc...
+
+
+## SSL
+
+Install mod_ssl, your certs and optionally [enforce https](https://github.com/Simone-Zabberoni/misc-one-liners/blob/master/APACHE.md)
+
+
 ## php.ini and .htaccess
 
 Set various params according to your setup (ie: `post_max_size`).
@@ -65,15 +84,7 @@ Set various params according to your setup (ie: `post_max_size`).
 
 The override behavoir is controlled by Apache, see the `AllowOverride` directive.
 
-## Apache 
 
-Set up HSTS in /etc/httpd/conf.d/ssl.conf:
-
-```
-<IfModule mod_headers.c>
-        Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"
-</IfModule>
-```
 
 ## Opcache
 
@@ -101,11 +112,16 @@ See the official guide:
 [https://docs.nextcloud.com/server/13/admin_manual/installation/selinux_configuration.html](https://docs.nextcloud.com/server/13/admin_manual/installation/selinux_configuration.html) or switch to *permissive* while testing.
 
 
-## SSL
 
-Install mod_ssl, your certs and optionally [enforce https](https://github.com/Simone-Zabberoni/misc-one-liners/blob/master/APACHE.md)
 
-## Routine stuff
+## Ready
+
+Restart httpd to apply the configuration (`systemctl restart httpd`)
+
+Connect to http://cloud.mydomain.tld/nextcloud and follow the instructions
+
+
+## Post-install  stuff
 
 Set up crontab action under the apache user. 
 You'll need at least the cron.php job and it's useful to run periodically the occ scan:
@@ -116,26 +132,6 @@ crontab -l -u apache
 ```
 
 **TODO**: logrotate script for /var/www/html/data/nextcloud.log
-
-## Config.php
-
-Setup at least the trusted domain access in the `config/config.php` file:
-```
-'trusted_domains' =>
-array (
-0 => '192.168.25.12',
-1 => 'cloud.mydomain.tld'
-),
-```
-
-
-## Ready
-
-Connect to http://cloud.mydomain.tld/nextcloud and follow the instructions
-
-
-
-
 
 
 
